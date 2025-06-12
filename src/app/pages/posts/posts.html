@@ -4,7 +4,7 @@
   <div class="search-bar">
     <input
       type="text"
-      placeholder="ფილტრი სათაურის, აღწერის ან მომხმარებლის მიხედვით..."
+      placeholder="მოძებნე სათაურით, აღწერით ან მომხმარებლით "
       [(ngModel)]="searchTerm"
       (input)="applyFilter()"
     />
@@ -16,14 +16,14 @@
         <tr>
           <th>მომხმარებელი</th>
           <th>სათაური</th>
-          <th>მოქმედებები</th>
+          <th>დეტალები</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let post of filteredPosts">
           <td data-label="მომხმარებელი">{{ post.userName }}</td>
           <td data-label="სათაური">{{ post.title }}</td>
-          <td data-label="მოქმედებები" class="actions-cell">
+          <td data-label="დეტალები" class="actions-cell">
             <button
               class="button detail-button"
               (click)="openDetailsModal(post)"

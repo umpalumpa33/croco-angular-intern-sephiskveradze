@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
-import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-posts',
@@ -11,6 +10,8 @@ import { map, switchMap } from 'rxjs/operators';
   templateUrl: './user-posts.html',
   styleUrl: './user-posts.scss',
 })
+
+// showing user's posts and name based on route
 export class UserPosts implements OnInit {
   userId: number | null = null;
   userName: string = 'User';

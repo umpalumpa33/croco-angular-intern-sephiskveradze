@@ -1,9 +1,9 @@
 <div class="user-todos-container">
   <div class="header-section">
     <button class="back-button" (click)="goBack()">უკან</button>
-    <h2 class="section-title">{{ userName }}-ის Todo სია</h2>
+    <h2 class="section-title">{{ userName }} Todo სია</h2>
   </div>
-
+  <!-- list of todos -->
   <div *ngIf="todos && todos.length > 0; else noTodos">
     <ul class="todos-list">
       <li
@@ -16,10 +16,10 @@
       </li>
     </ul>
   </div>
-
+  <!-- if no todos -->
   <ng-template #noTodos>
     <div class="no-todos-message">
-      <p>{{ userName }}-ს არ აქვს Todo დავალებები.</p>
+      <p>{{ userName }} არ აქვს Todo</p>
     </div>
   </ng-template>
 </div>

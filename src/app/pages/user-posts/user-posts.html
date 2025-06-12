@@ -1,7 +1,7 @@
 <div class="user-posts-container">
   <div class="header-section">
     <button class="back-button" (click)="goBack()">უკან</button>
-    <h2>{{ userName }}-ის პოსტები</h2>
+    <h2>{{ userName }} პოსტები</h2>
   </div>
 
   <div *ngIf="userPosts && userPosts.length > 0">
@@ -12,10 +12,10 @@
       </div>
     </div>
   </div>
-
+  <!-- if no post -->
   <ng-template #noPosts>
     <div class="no-posts-message">
-      <p>{{ userName }}-ს არ აქვს პოსტები.</p>
+      <p>{{ userName }}ს არ აქვს პოსტები</p>
     </div>
   </ng-template>
 </div>

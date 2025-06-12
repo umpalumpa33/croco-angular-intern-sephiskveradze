@@ -2,6 +2,7 @@
   padding: 20px;
   border-radius: 8px;
   margin: 2vh 0;
+  max-width: 70vw;
   background-color: #d4edda;
   border: 2px solid #d4edda;
   padding: 5vh 5vw;
@@ -37,11 +38,11 @@
 
 .users-table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   background-color: #eaf7e8;
   border-radius: 8px;
-  overflow: hidden;
 
   th,
   td {
@@ -70,9 +71,28 @@
 
   .actions-cell {
     white-space: nowrap;
+    // display: flex;
+    // flex-direction: column;
   }
 }
 
+@media (max-width: 1024px) {
+  .users-container {
+    padding: 2vh 3vw;
+  }
+
+  .users-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .actions-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+  }
+}
 .button {
   padding: 8px 15px;
   border: none;
@@ -102,17 +122,11 @@
 
 .posts-button {
   background-color: #28a745;
-  &:hover {
-    background-color: darken(#28a745, 10%);
-  }
 }
 
 .todos-button {
   background-color: #ffc107;
   color: #333;
-  &:hover {
-    background-color: darken(#ffc107, 10%);
-  }
 }
 
 .no-results {
@@ -130,13 +144,22 @@
     overflow-x: auto;
     display: block;
   }
-
   .users-table thead,
   .users-table tbody,
   .users-table th,
   .users-table td,
   .users-table tr {
     display: block;
+  }
+
+  .users-table td {
+    padding: 12px 20px;
+    font-size: 0.95em;
+
+    &:before {
+      font-weight: bold;
+      color: #333;
+    }
   }
 
   .users-table thead tr {
@@ -168,22 +191,6 @@
       font-weight: bold;
       text-align: left;
     }
-  }
-
-  .users-table td:nth-of-type(1):before {
-    content: "ID";
-  }
-  .users-table td:nth-of-type(2):before {
-    content: "სახელი";
-  }
-  .users-table td:nth-of-type(3):before {
-    content: "მომხმარებელი";
-  }
-  .users-table td:nth-of-type(4):before {
-    content: "ელ-ფოსტა";
-  }
-  .users-table td:nth-of-type(5):before {
-    content: "მოქმედებები";
   }
 
   .search-bar input {

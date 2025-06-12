@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   private baseUrl = 'https://jsonplaceholder.typicode.com';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  // fetching users, posts, and todos from JSONPlaceholder
 
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/users`);

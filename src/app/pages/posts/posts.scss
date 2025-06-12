@@ -1,10 +1,10 @@
 .posts-container {
-  padding: 20px;
+  padding: 5vh 5vw;
   border-radius: 8px;
   margin: 2vh 0;
+  max-width: 70vw;
   background-color: #d4edda;
   border: 2px solid #d4edda;
-  padding: 5vh 5vw;
 
   h2 {
     text-align: center;
@@ -14,7 +14,6 @@
     font-weight: 600;
   }
 }
-
 .search-bar {
   margin-bottom: 25px;
   text-align: center;
@@ -104,9 +103,6 @@
 
 .detail-button {
   background-color: #2ecc71;
-  &:hover {
-    background-color: darken(#2ecc71, 10%);
-  }
 }
 
 .no-results {
@@ -175,10 +171,6 @@
   align-items: center;
   transition: background-color 0.3s ease;
   z-index: 1001;
-
-  &:hover {
-    background-color: darken(#dc3545, 10%);
-  }
 }
 
 @keyframes fadeIn {

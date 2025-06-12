@@ -6,9 +6,9 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-user-todos',
   standalone: true,
-  imports: [CommonModule], // Removed FormsModule
+  imports: [CommonModule],
   templateUrl: './user-todos.html',
-  styleUrl: './user-todos.scss'
+  styleUrl: './user-todos.scss',
 })
 export class UserTodos implements OnInit {
   userId: number | null = null;
@@ -19,10 +19,10 @@ export class UserTodos implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private router: Router
-  ) { }
-
+  ) {}
+  // grab userid and fetch
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const id = params.get('userId');
       if (id) {
         this.userId = +id;
@@ -43,7 +43,7 @@ export class UserTodos implements OnInit {
         error: (err) => {
           console.error('Error fetching user details:', err);
           this.userName = 'უცნობი მომხმარებელი';
-        }
+        },
       });
 
       this.apiService.getUserTodos(this.userId).subscribe({
@@ -52,8 +52,8 @@ export class UserTodos implements OnInit {
         },
         error: (err) => {
           console.error('Error fetching user todos:', err);
-          this.todos = []; 
-        }
+          this.todos = [];
+        },
       });
     }
   }

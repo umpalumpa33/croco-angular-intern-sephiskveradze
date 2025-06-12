@@ -35,7 +35,8 @@
 @media (max-width: 768px) {
   .app-nav {
     width: 100%;
-    padding: 0;
+    padding: 0 2vw;
+
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     min-height: auto;
   }
@@ -43,6 +44,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
   }
   .app-nav li {
     margin: 0;
@@ -51,5 +53,6 @@
   }
   .app-nav a {
     padding: 15px 0;
+    width: 100%;
   }
 }
