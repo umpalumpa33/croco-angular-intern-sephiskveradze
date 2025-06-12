@@ -1,0 +1,52 @@
+<div class="posts-container">
+  <h2>პოსტები</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="ფილტრი სათაურის, აღწერის ან მომხმარებლის მიხედვით..."
+      [(ngModel)]="searchTerm"
+      (input)="applyFilter()"
+    />
+  </div>
+
+  <div *ngIf="filteredPosts && filteredPosts.length > 0; else noResults">
+    <table class="posts-table">
+      <thead>
+        <tr>
+          <th>მომხმარებელი</th>
+          <th>სათაური</th>
+          <th>მოქმედებები</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let post of filteredPosts">
+          <td data-label="მომხმარებელი">{{ post.userName }}</td>
+          <td data-label="სათაური">{{ post.title }}</td>
+          <td data-label="მოქმედებები" class="actions-cell">
+            <button
+              class="button detail-button"
+              (click)="openDetailsModal(post)"
+            >
+              დეტალურად
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noResults>
+    <div class="no-results">
+      <p>პოსტები ვერ მოიძებნა.</p>
+    </div>
+  </ng-template>
+
+  <div *ngIf="showDetailsModal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-button" (click)="closeDetailsModal()">X</button>
+      <h3>{{ selectedPost?.title }}</h3>
+      <p>{{ selectedPost?.body }}</p>
+    </div>
+  </div>
+</div>

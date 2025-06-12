@@ -1,0 +1,43 @@
+<div class="users-container">
+  <h2>მომხმარებლები</h2>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (input)="applyFilter()"
+      placeholder="ძიება სახელით, მომხმარებლის სახელით ან ელ-ფოსტით..."
+    />
+  </div>
+
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th>სახელი და გვარი</th>
+        <th>ტელეფონის ნომერი</th>
+        <th>ელ-ფოსტა</th>
+        <th>კომპანია</th>
+        <th>მოქმედებები</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers">
+        <td>{{ user.name }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.company.name }}</td>
+        <td class="actions-cell">
+          <button class="button posts-button" (click)="viewUserPosts(user.id)">
+            პოსტები
+          </button>
+          <button class="button todos-button" (click)="viewUserTodos(user.id)">
+            Todo List
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="filteredUsers.length === 0">
+        <td colspan="5" class="no-results">მომხმარებლები არ მოიძებნა.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

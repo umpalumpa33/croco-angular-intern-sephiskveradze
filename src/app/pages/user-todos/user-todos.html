@@ -1,0 +1,25 @@
+<div class="user-todos-container">
+  <div class="header-section">
+    <button class="back-button" (click)="goBack()">უკან</button>
+    <h2 class="section-title">{{ userName }}-ის Todo სია</h2>
+  </div>
+
+  <div *ngIf="todos && todos.length > 0; else noTodos">
+    <ul class="todos-list">
+      <li
+        *ngFor="let todo of todos"
+        class="todo-item"
+        [class.completed]="todo.completed"
+      >
+        <input type="checkbox" [checked]="todo.completed" disabled />
+        <span>{{ todo.title }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noTodos>
+    <div class="no-todos-message">
+      <p>{{ userName }}-ს არ აქვს Todo დავალებები.</p>
+    </div>
+  </ng-template>
+</div>

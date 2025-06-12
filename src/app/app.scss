@@ -1,0 +1,11 @@
+.content-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

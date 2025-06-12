@@ -1,0 +1,40 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #d4edda;
+  color: #1e8449;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.site-title .home-link {
+  color: #1e8449;
+  text-decoration: none;
+  font-size: 1.8em;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.site-title .home-link:hover {
+  color: #2ecc71;
+}
+
+.current-datetime {
+  font-size: 1em;
+  opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 10px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .site-title .home-link {
+    font-size: 1.5em;
+  }
+  .current-datetime {
+    font-size: 0.9em;
+  }
+}

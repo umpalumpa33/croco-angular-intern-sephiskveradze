@@ -1,0 +1,254 @@
+.posts-container {
+  padding: 20px;
+  border-radius: 8px;
+  margin: 2vh 0;
+  background-color: #d4edda;
+  border: 2px solid #d4edda;
+  padding: 5vh 5vw;
+
+  h2 {
+    text-align: center;
+    color: #1e8449;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
+  }
+}
+
+.search-bar {
+  margin-bottom: 25px;
+  text-align: center;
+
+  input {
+    width: 100%;
+    max-width: 450px;
+    padding: 12px 18px;
+    border: 1px solid #bdecb4;
+    border-radius: 25px;
+    font-size: 1em;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: #1e8449;
+      box-shadow: 0 0 0 0.2rem rgba(30, 132, 73, 0.25);
+      outline: none;
+    }
+  }
+}
+
+.posts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+
+  th,
+  td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e0f7de;
+  }
+
+  th {
+    background-color: #c3e6cb;
+    color: #4a4a4a;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #eaf7e8;
+  }
+
+  tbody tr:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .actions-cell {
+    white-space: nowrap;
+  }
+}
+
+.button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.85em;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.detail-button {
+  background-color: #2ecc71;
+  &:hover {
+    background-color: darken(#2ecc71, 10%);
+  }
+}
+
+.no-results {
+  text-align: center;
+  padding: 30px;
+  color: #6a6a6a;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+  animation: fadeIn 0.3s ease-out;
+
+  h3 {
+    color: #1e8449;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    line-height: 1.3;
+  }
+
+  p {
+    color: #4a4a4a;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  z-index: 1001;
+
+  &:hover {
+    background-color: darken(#dc3545, 10%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .posts-table,
+  .posts-container {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .posts-table thead,
+  .posts-table tbody,
+  .posts-table th,
+  .posts-table td,
+  .posts-table tr {
+    display: block;
+  }
+
+  .posts-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .posts-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  }
+
+  .posts-table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+
+    &:before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 45%;
+      padding-left: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+
+  .posts-table td:nth-of-type(1):before {
+    content: "მომხმარებელი";
+    color: #6a6a6a;
+  }
+  .posts-table td:nth-of-type(2):before {
+    content: "სათაური";
+    color: #6a6a6a;
+  }
+  .posts-table td:nth-of-type(3):before {
+    content: "მოქმედებები";
+    color: #6a6a6a;
+  }
+}
